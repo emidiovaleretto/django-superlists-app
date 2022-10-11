@@ -1,6 +1,48 @@
 from selenium import webdriver
+import unittest
 
-browser = webdriver.Firefox()
-browser.get('http://localhost:8000')
+from time import sleep
 
-assert 'Django' in browser.title
+
+class NewVisitorTest(unittest.TestCase):
+
+    def setUp(self) -> None:
+        self.browser = webdriver.Firefox()
+
+    def tearDown(self) -> None:
+        sleep(5)
+        self.browser.quit()
+
+    def test_can_start_a_list_and_retrieve_it_later(self):
+        # Liz has heard about a cool new to-do app.
+        # She goes to check out its homepage
+        self.browser.get('http://localhost:8000')
+
+        # then she notices the page title and header mention a to-do lists
+        self.assertIn('To-Do', self.browser.title)
+        self.fail('Finish the test!')
+
+        # She is invited to enter a to-do item straight away
+
+        # She types "Buy peacock feathers" into the text field
+        # Her hobby is tying fly-sishing lures
+
+        # When she hits enter, the page updates, and list the item
+        # '1: Buy peacock feathers' as an item in her to-do list
+
+        # There's still a text box invitting her to add another item.
+        # Then she enters "Use peacock feathers to make a fly."
+
+        # The page updates again and shows both items on her list
+
+        # Liz wonders whether the site will remember her list.
+        # Then she sees that the site has generate an unique URL for her
+        # There is some explanatory text to that effect
+
+        # She visits that URL - her to-do list is still there
+
+        # Satisfied, she goes back to sleep
+
+
+if __name__=='__main__':
+    unittest.main()
