@@ -44,7 +44,8 @@ class NewVisitorTest(unittest.TestCase):
         rows = self.browser.find_element_by_tag_name('tr')
 
         self.assertTrue(
-            any(row.text == '1: Buy peacock feathers' for row in rows)
+            any(row.text == '1: Buy peacock feathers' for row in rows),
+            'New to-do item did not appear in table'
         )
 
         # There's still a text box invitting her to add another item.
