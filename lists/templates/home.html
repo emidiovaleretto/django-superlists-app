@@ -1,11 +1,9 @@
-<!doctype html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>To-Do</title>
-</head>
-<body>
-  <h1>To-Do</h1>
-</body>
-</html>
+{% extends "base.html" %}
+{% block content %}
+<form class="space-y-4 md:space-y-6" action="#">
+    <h1 class="text-6xl text-white">To-Do</h1>
+    <div>
+        <input type="text" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com" required="">
+    </div>
+  </form>
+{% endblock %}
