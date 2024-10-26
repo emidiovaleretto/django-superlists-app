@@ -1,11 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
-<form class="space-y-4 md:space-y-6" action="#">
+<form class="space-y-4 md:space-y-6" method="POST">
+  {% csrf_token %}
     <h1 class="text-6xl text-white">To-Do</h1>
     <div>
-        <input type="text" name="email" id="id_new_item" class="form-input" placeholder="Enter a to-do item">
+        <input type="text" name="item_text" id="id_new_item" class="form-input" placeholder="Enter a to-do item">
         <table id="id_list_table">
-          <tr></tr>
+          <tr>
+            <td>1: {{ new_item_text }}</td>
+          </tr>
         </table>
     </div>
   </form>
