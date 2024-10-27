@@ -54,9 +54,9 @@ class NewVisitorTest(unittest.TestCase):
         sleep(1)
 
         self.check_for_row_in_list_table('1: Buy peacock feathers')
-        self.check_for_row_in_list_table('2: Use peacock feathers to make a fly.')
-
-        self.fail('Finish the test!')
+        self.check_for_row_in_list_table(
+            '2: Use peacock feathers to make a fly.'
+        )
 
         # The page updates again and shows both items on her list
 
@@ -68,6 +68,7 @@ class NewVisitorTest(unittest.TestCase):
 
         # Satisfied, she goes back to sleep
 
+        self.fail('Finish the test!')
 
 if __name__ == '__main__':
     unittest.main()
