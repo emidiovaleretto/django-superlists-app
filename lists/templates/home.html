@@ -5,11 +5,17 @@
     <h1 class="text-6xl text-white">To-Do</h1>
     <div>
         <input type="text" name="item_text" id="id_new_item" class="form-input" placeholder="Enter a to-do item">
-        <table id="id_list_table">
-          <tr>
-            <td>1: {{ new_item_text }}</td>
-          </tr>
-        </table>
+        <table id="id_list_table" class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+          <tbody>
+            {% for item in items %}
+              <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                  <td class="px-6 py-4">
+                    {{ forloop.counter }}: {{ item.text }}
+                  </td>
+              </tr>
+              {% empty %}{% endfor %}
+          </tbody>
+      </table>
     </div>
   </form>
 {% endblock %}
