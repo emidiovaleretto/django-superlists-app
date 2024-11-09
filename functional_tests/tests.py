@@ -119,6 +119,8 @@ class NewVisitorTest(LiveServerTestCase):
         # Analu gets her own unique URL
         analu_list_url = self.browser.current_url
         self.assertRegex(analu_list_url, '/lists/.+')
+        # self.assertRedirects(
+        # analu_list_url, 'lists/the-only-list-in-the-world/')
         self.assertNotEqual(liz_list_url, analu_list_url)
 
         # Again, there's no trace of Liz's list
