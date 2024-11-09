@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-<form class="space-y-4 md:space-y-6" method="POST">
+<form class="space-y-4 md:space-y-6" method="POST" action="{% url 'new_list' %}">
   {% csrf_token %}
     <h1 class="text-6xl text-white">Start a new To-Do list</h1>
     <div>
