@@ -11,6 +11,15 @@ class HomePageTest(TestCase):
         self.client.get('/')
         self.assertEqual(Item.objects.count(), 0)
 
+    def test_display_all_items_in_list(self):
+        Item.objects.create(text='itemey 1')
+        Item.objects.create(text='itemey 2')
+
+        response = self.client.get('/')
+
+        self.assertIn('itemey 1', response.content.decode())
+        self.assertIn('itemey 2', response.content.decode())
+
     def test_home_page_can_save_a_POST_request(self):
         response = self.client.post('/', data={'item_text': 'A new list item'})
 
